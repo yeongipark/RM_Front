@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { KAKAO_AUTH_URL } from "../../utils/Oauth";
 
 export const Nav = () => {
   return (
@@ -14,9 +15,9 @@ export const Nav = () => {
           <li className="font-black"> ABOUT</li>
         </ul>
         <div className="grow"></div>
-        <Link to={"/login"}>
+        <a href={KAKAO_AUTH_URL}>
           <p className="font-black w-32 text-center">Login</p>
-        </Link>
+        </a>
       </div>
       <Outlet />
     </div>
