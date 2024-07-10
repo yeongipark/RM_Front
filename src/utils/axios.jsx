@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const apiCilent = axios.create({
-  baseURL: "444",
+  baseURL: `http://${import.meta.env.VITE_BASEURL}`,
   timeout: 10000,
   headers: {
-    "Content-Type": "application/json;charset=utf-8",
+    "Content-Type": "application/json",
   },
 });
