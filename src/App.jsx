@@ -1,11 +1,14 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Login } from "./pages/login";
+import { Nav } from "./layout/nav/nav";
+import "./output.css";
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Nav />}>
+          <Route path="/login" element={<Login />}></Route>
+        </Route>
       </Routes>
     </>
   );
