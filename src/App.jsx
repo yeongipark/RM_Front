@@ -1,14 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import { Login } from "./pages/login";
 import { Nav } from "./layout/nav/nav";
+import NotFound from "./pages/notFound";
 import "./output.css";
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Nav />}>
-          <Route path="/login" element={<Login />}></Route>
-        </Route>
+        <Route path="/" element={<Nav />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );
