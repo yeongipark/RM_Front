@@ -2,22 +2,41 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { KAKAO_AUTH_URL } from "../../utils/Oauth";
+import { apiClient } from "../../utils/axios";
+import { useNavigate } from "react-router-dom";
+import { Cookies } from "react-cookie";
 
 export const Nav = () => {
+  const cookie = new Cookies();
+  const nav = useNavigate();
   const isLogin = localStorage.getItem("login");
   // 로그아웃 실행 함수
   const logout = () => {
     localStorage.clear();
+    nav("/");
   };
+
+  const getAll = async () => {
+    const refreshToken = cookie.get("refresh-token");
+    console.log(refreshToken);
+    const res = await apiClient.get("/test");
+    console.log(res);
+  };
+
   return (
     <div>
       <div className="bg-black text-white p-6 flex ">
         <p className="font-black text-xl">Readability Me!</p>
         <div className="grow"></div>
         <ul className="flex justify-center gap-20">
-          <li className="font-black">HOME</li>
-          <li className="font-black">HISTORY</li>
-          <li className="font-black"> ABOUT</li>
+          <li
+            className="font-black cursor-pointer hover:scale-125"
+            onClick={getAll}
+          >
+            HOME
+          </li>
+          <li className="font-black cursor-pointer hover:scale-125">HISTORY</li>
+          <li className="font-black hover:scale-125"> ABOUT</li>
         </ul>
         <div className="grow"></div>
         {isLogin ? (

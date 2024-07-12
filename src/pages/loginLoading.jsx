@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { PacmanLoader } from "react-spinners";
-import { apiCilent } from "../utils/axios";
+import { apiClient } from "../utils/axios";
 import { useNavigate } from "react-router-dom";
 
 export const LoginLoading = () => {
@@ -10,10 +10,10 @@ export const LoginLoading = () => {
   useEffect(() => {
     const kakaoLogin = async () => {
       try {
-        const res = await apiCilent.post("/login/kakao", { code: code });
-        console.log(res);
-        localStorage.setItem("accessToken", res.data.accessToken);
+        const res = await apiClient.post("/login/kakao", { code: code });
+        localStorage.setItem("accessToken", res.headers["access-token"]);
         localStorage.setItem("login", true);
+        console.log(res);
         // 로그인 완료되면 홈으로 이동
         nav("/");
       } catch (error) {
