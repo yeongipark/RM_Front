@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { CustomSelect } from "../../utils/customSelect";
-import "../../styles/left.css";
 import "../../styles/textarea.css";
 import { CustomFileInput } from "../../utils/customFileInput";
 import { CSSTransition } from "react-transition-group";
@@ -24,7 +23,7 @@ export const Left = () => {
   };
 
   return (
-    <div className="w-1/3  0">
+    <div className="w-1/3 ">
       <h2 className="font-bold text-3xl mb-5">Translate & Share</h2>
       <p className="mb-5 text-base">
         Easily translate and share files with our powerful app.
