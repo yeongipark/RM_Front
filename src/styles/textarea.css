@@ -1,0 +1,21 @@
+.textarea-enter {
+  opacity: 0;
+  height: 0;
+}
+
+.textarea-enter-active {
+  opacity: 1;
+  height: 20rem;
+  transition: all 0.3s ease;
+}
+
+.textarea-exit {
+  opacity: 1;
+  height: 20rem;
+}
+
+.textarea-exit-active {
+  opacity: 0;
+  height: 0;
+  transition: all 0.3s ease;
+}
