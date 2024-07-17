@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { CiNoWaitingSign } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 
 // 커스텀한 selecet
 export const CustomSelect = ({ setFileType, fileType }) => {
+  // 모달창 ref 변수
+  const modalRef = useRef(null);
+
   const [on, setOn] = useState(false);
   // 파일 인풋창 눌렀을 때
   const onClick = () => {
@@ -17,7 +21,11 @@ export const CustomSelect = ({ setFileType, fileType }) => {
 
   // 모달창 이외에 것을 클릭하면 닫히게
   const handleOutsideClick = (e) => {
-    setOn(false);
+    console.log(modalRef.current, e.target);
+    if (!modalRef.current.contains(e.target)) {
+      setOn(false);
+      e.stopPropagation();
+    }
   };
 
   useEffect(() => {
@@ -33,7 +41,7 @@ export const CustomSelect = ({ setFileType, fileType }) => {
   }, [on]);
 
   return (
-    <div>
+    <div ref={modalRef}>
       <div
         className="w-11/12 border-solid border-gray-300 border-2 p-1 rounded-md  relative hover:border-black mb-1"
         onClick={onClick}
@@ -45,7 +53,6 @@ export const CustomSelect = ({ setFileType, fileType }) => {
       </div>
 
       {/* 모달창 형식으로 구현 */}
-
       {on ? (
         <ul
           className={`absolute w-1/4 rounded-md bg-white border-solid border-gray-300 border-2 transition transform duration-500 ease-in-out ${
