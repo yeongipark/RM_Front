@@ -3,7 +3,7 @@ import { PacmanLoader } from "react-spinners";
 import { apiClient } from "../utils/axios";
 import { useNavigate } from "react-router-dom";
 
-export const LoginLoading = () => {
+export const LoginLoading = ({ text }) => {
   const nav = useNavigate();
   const code = new URL(window.location.href).searchParams.get("code");
 
@@ -27,9 +27,7 @@ export const LoginLoading = () => {
 
   return (
     <div className="flex justify-center flex-col items-center min-h-screen">
-      <p className="mb-5 text-xl font-semibold">
-        로그인 진행중입니다. 잠시만 기다려주세요
-      </p>
+      <p className="mb-5 text-xl font-semibold">{text}</p>
       <PacmanLoader />
     </div>
   );
