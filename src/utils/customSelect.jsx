@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { CiNoWaitingSign } from "react-icons/ci";
+import { CSSTransition } from "react-transition-group";
 import { IoIosArrowDown } from "react-icons/io";
 
 // 커스텀한 selecet
@@ -52,8 +52,39 @@ export const CustomSelect = ({ setFileType, fileType }) => {
         </p>
       </div>
 
+      <CSSTransition in={on} classNames="fade" timeout={300} unmountOnExit>
+        <ul
+          className={`absolute w-1/4 rounded-md bg-white border-solid border-gray-300 border-2`}
+        >
+          <li
+            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
+            onClick={changeFileType}
+          >
+            text
+          </li>
+          <li
+            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
+            onClick={changeFileType}
+          >
+            audio
+          </li>
+          <li
+            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
+            onClick={changeFileType}
+          >
+            image
+          </li>
+          <li
+            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
+            onClick={changeFileType}
+          >
+            file
+          </li>
+        </ul>
+      </CSSTransition>
+
       {/* 모달창 형식으로 구현 */}
-      {on ? (
+      {/* {on ? (
         <ul
           className={`absolute w-1/4 rounded-md bg-white border-solid border-gray-300 border-2 transition transform duration-500 ease-in-out ${
             on ? "scale-100 opacity-100" : "scale-100 opacity-0"
@@ -84,7 +115,7 @@ export const CustomSelect = ({ setFileType, fileType }) => {
             file
           </li>
         </ul>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };

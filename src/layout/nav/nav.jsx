@@ -17,13 +17,6 @@ export const Nav = () => {
     nav("/");
   };
 
-  const getAll = async () => {
-    const refreshToken = cookie.get("refresh-token");
-    console.log(refreshToken);
-    const res = await apiClient.get("/test");
-    console.log(res);
-  };
-
   return (
     <div>
       <div className="bg-black text-white p-6 flex sm:flex-row flex-col items-center ">
@@ -38,11 +31,14 @@ export const Nav = () => {
         <ul className="flex justify-center sm:gap-20 sm:flex-row flex-col gap-5 sm:mb-0 mb-5">
           <li
             className="font-black cursor-pointer hover:scale-125 text-center"
-            onClick={getAll}
+            onClick={() => nav("/")}
           >
             HOME
           </li>
-          <li className="font-black cursor-pointer hover:scale-125 text-center">
+          <li
+            className="font-black cursor-pointer hover:scale-125 text-center"
+            onClick={() => nav("/history")}
+          >
             HISTORY
           </li>
           <li className="font-black hover:scale-125 cursor-pointer text-center">
