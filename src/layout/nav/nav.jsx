@@ -25,18 +25,25 @@ export const Nav = () => {
 
   return (
     <div>
-      <div className="bg-black text-white p-6 flex ">
-        <p className="font-black text-xl">Readability Me!</p>
+      <div className="bg-black text-white p-6 flex sm:flex-row flex-col items-center ">
+        <p className="font-black text-xl sm:mb-0 mb-5 cursor-pointer">
+          Readability Me!
+        </p>
         <div className="grow"></div>
-        <ul className="flex justify-center gap-20">
+        <ul className="flex justify-center sm:gap-20 sm:flex-row flex-col gap-5 sm:mb-0 mb-5">
           <li
-            className="font-black cursor-pointer hover:scale-125"
+            className="font-black cursor-pointer hover:scale-125 text-center"
             onClick={getAll}
           >
             HOME
           </li>
-          <li className="font-black cursor-pointer hover:scale-125">HISTORY</li>
-          <li className="font-black hover:scale-125"> ABOUT</li>
+          <li className="font-black cursor-pointer hover:scale-125 text-center">
+            HISTORY
+          </li>
+          <li className="font-black hover:scale-125 cursor-pointer text-center">
+            {" "}
+            ABOUT
+          </li>
         </ul>
         <div className="grow"></div>
         {isLogin ? (

@@ -3,7 +3,7 @@ import { HistoryFrame } from "./historyFrame";
 
 export const Right = () => {
   return (
-    <div className="w-1/3 rounded-md bg-neutral-100 p-5 h-72">
+    <div className="md:w-1/3 w-2/3 rounded-md bg-neutral-100 p-5 h-72">
       <h2 className="font-bold text-xl mb-2">Recent Translations</h2>
       {!localStorage.getItem("login") ? (
         <>

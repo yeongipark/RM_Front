@@ -23,7 +23,7 @@ export const Left = () => {
   };
 
   return (
-    <div className="w-1/3 ">
+    <div className="md:w-1/3 w-2/3 md:mb-0 mb-5">
       <h2 className="font-bold text-3xl mb-5">Translate & Share</h2>
       <p className="mb-5 text-base">
         Easily translate and share files with our powerful app.

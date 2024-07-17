@@ -4,7 +4,7 @@ import { Right } from "./right";
 
 export const Home = () => {
   return (
-    <div className="flex justify-center mt-28">
+    <div className="flex justify-center mt-28 md:flex-row flex-col items-center md:items-start">
       <Left></Left>
       <Right></Right>
     </div>
