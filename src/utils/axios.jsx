@@ -1,9 +1,9 @@
 import axios from "axios";
-// import Cookies from "js-cookie";
 import { Cookies } from "react-cookie";
 
 const cookie = new Cookies();
 
+// axios 인스턴스 생성
 export const apiClient = axios.create({
   baseURL: `http://${import.meta.env.VITE_BASEURL}`,
   timeout: 10000,

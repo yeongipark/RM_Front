@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+// 커스텀한 파일 인풋창 컴포넌트
 export const CustomFileInput = ({ type, setFile }) => {
   const [fileName, setFileName] = useState(undefined);
 

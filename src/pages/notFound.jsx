@@ -1,5 +1,6 @@
 import React from "react";
 
+// notPfound 페이지
 const NotFound = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-900">
