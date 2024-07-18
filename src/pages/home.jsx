@@ -1,6 +1,6 @@
 import React from "react";
-import { Left } from "./left";
-import { Right } from "./right";
+import { Left } from "../components/home/left";
+import { Right } from "../components/home/right";
 
 // home 화면을 구성하는 메인 페이지
 export const Home = () => {
