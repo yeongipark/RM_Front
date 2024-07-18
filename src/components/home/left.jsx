@@ -4,6 +4,8 @@ import "../../styles/textarea.css";
 import { CustomFileInput } from "../../utils/customFileInput";
 import { CSSTransition } from "react-transition-group";
 
+const selectMenu = ["text", "audio", "image", "file"];
+
 // home화면에서 왼쪽 파일 타입과 파일을 선택하는 컴포넌트
 export const Left = () => {
   // 파일 타입 설정 변수 (기본 = text )
@@ -34,7 +36,13 @@ export const Left = () => {
       </p>
       {/* 파일 타입 설정 */}
       <p className="text-lg">File Type</p>
-      <CustomSelect fileType={fileType} setFileType={setFileType} />
+      <CustomSelect
+        fileType={fileType}
+        setFileType={setFileType}
+        width={"w-11/12"}
+        name={"Select File Type"}
+        selectMenu={selectMenu}
+      />
 
       {/* 파일 타입이 text일때 textarea등장에 애니메이션 달기 */}
       <CSSTransition

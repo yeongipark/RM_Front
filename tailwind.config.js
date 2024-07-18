@@ -6,7 +6,13 @@ export default {
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        100: "30rem",
+        110: "32rem",
+        150: "35rem", // 사용자 정의 크기 추가
+      },
+    },
     screens: {
       ss: "480px",
       sm: "620px",

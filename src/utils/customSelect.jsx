@@ -3,7 +3,13 @@ import { CSSTransition } from "react-transition-group";
 import { IoIosArrowDown } from "react-icons/io";
 
 // 커스텀한 selecet
-export const CustomSelect = ({ setFileType, fileType }) => {
+export const CustomSelect = ({
+  setFileType,
+  fileType,
+  width,
+  name,
+  selectMenu,
+}) => {
   // 모달창 ref 변수
   const modalRef = useRef(null);
 
@@ -43,79 +49,31 @@ export const CustomSelect = ({ setFileType, fileType }) => {
   return (
     <div ref={modalRef}>
       <div
-        className="w-11/12 border-solid border-gray-300 border-2 p-1 rounded-md  relative hover:border-black mb-1"
+        className={`${width} border-solid border-gray-300 border-2 p-1 rounded-md  relative hover:border-black mb-1`}
         onClick={onClick}
       >
         <p className="text-gray-500">
-          <span> {fileType ?? "Select File Type"} </span>
+          <span> {fileType ?? name} </span>
           <IoIosArrowDown className="absolute right-3 top-2" />
         </p>
       </div>
 
       <CSSTransition in={on} classNames="fade" timeout={300} unmountOnExit>
         <ul
-          className={`absolute w-1/4 rounded-md bg-white border-solid border-gray-300 border-2`}
+          className={`absolute w-1/6 rounded-md bg-white border-solid border-gray-300 border-2`}
         >
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            text
-          </li>
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            audio
-          </li>
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            image
-          </li>
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            file
-          </li>
+          {selectMenu.map((item) => {
+            return (
+              <li
+                className="hover:bg-slate-300 cursor-pointer text-lg text-center"
+                onClick={changeFileType}
+              >
+                {item}
+              </li>
+            );
+          })}
         </ul>
       </CSSTransition>
-
-      {/* 모달창 형식으로 구현 */}
-      {/* {on ? (
-        <ul
-          className={`absolute w-1/4 rounded-md bg-white border-solid border-gray-300 border-2 transition transform duration-500 ease-in-out ${
-            on ? "scale-100 opacity-100" : "scale-100 opacity-0"
-          }`}
-        >
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            text
-          </li>
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            audio
-          </li>
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            image
-          </li>
-          <li
-            className="hover:bg-slate-300 cursor-pointer text-lg text-center"
-            onClick={changeFileType}
-          >
-            file
-          </li>
-        </ul>
-      ) : null} */}
     </div>
   );
 };

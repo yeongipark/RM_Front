@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./output.css";
 import { History } from "./components/history/History";
+import { Translate } from "./pages/translate";
 function App() {
   const location = useLocation();
   console.log(location);
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Nav />}>
               <Route path="/" element={<Home />}></Route>
               <Route path="/history" element={<History />}></Route>
+              <Route path="/translate" element={<Translate />}></Route>
             </Route>
             <Route path="*" element={<NotFound />}></Route>
             <Route
