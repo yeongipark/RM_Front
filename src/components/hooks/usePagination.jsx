@@ -8,7 +8,7 @@ function slice(arr, pageSize) {
   return sliceArr;
 }
 
-export default function usePagination(pages, total, pageSize = 10) {
+export default function usePagination(pages, total, pageSize = 5) {
   // 페이지네이션 페이지들 저장할 state
   const [sliceArr, setSliceArr] = useState([pages]);
   // 현재 몇번째 페이지 인지 저장할 state
@@ -39,7 +39,7 @@ export default function usePagination(pages, total, pageSize = 10) {
 
   // 페이지 번호 바뀔때 10의 자리가 변경되면 표시되는 총 페이지 변경 1~10 -> 11~20
   useEffect(() => {
-    if (pageNum <= 10) {
+    if (pageNum <= pageSize) {
       setTotalPage(0);
       return;
     }
