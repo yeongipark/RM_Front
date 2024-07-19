@@ -49,7 +49,7 @@ export const CustomSelect = ({
   return (
     <div ref={modalRef}>
       <div
-        className={`${width} border-solid border-gray-300 border-2 p-1 rounded-md  relative hover:border-black mb-1`}
+        className={`${width} border-solid border-gray-300 border-2 p-1 rounded-md  relative hover:border-black mb-1 `}
         onClick={onClick}
       >
         <p className="text-gray-500">

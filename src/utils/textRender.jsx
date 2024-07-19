@@ -5,9 +5,11 @@ export function TextRender({ text, word }) {
   const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseOver = (item, event) => {
-    console.log("ff");
     setHoveredWord(item);
-    setHoverPosition({ x: event.clientX, y: event.clientY });
+    setHoverPosition({
+      x: event.clientX + window.scrollX,
+      y: event.clientY + window.scrollY,
+    });
   };
 
   const handleMouseOut = () => {
@@ -17,7 +19,7 @@ export function TextRender({ text, word }) {
   const parts = text?.split(/(\s+)/);
 
   return (
-    <div>
+    <div className="leading-7 break-words h-5/6 overflow-auto">
       {parts?.map((item, idx) => {
         if (item in word) {
           switch (word[item]) {
@@ -25,7 +27,7 @@ export function TextRender({ text, word }) {
               return (
                 <span
                   key={idx}
-                  className="bg-lime-500 text-lime-300 p-1 rounded-md"
+                  className="bg-lime-500 text-lime-300 p-1 rounded-md cursor-pointer"
                   onMouseOver={(e) => handleMouseOver(item, e)}
                   onMouseOut={handleMouseOut}
                 >
@@ -36,7 +38,7 @@ export function TextRender({ text, word }) {
               return (
                 <span
                   key={idx}
-                  className="bg-blue-500 text-blue-300 p-1 rounded-md"
+                  className="bg-blue-500 text-blue-300 p-1 rounded-md cursor-pointer"
                   onMouseOver={(e) => handleMouseOver(item, e)}
                   onMouseOut={handleMouseOut}
                 >
@@ -47,7 +49,7 @@ export function TextRender({ text, word }) {
               return (
                 <span
                   key={idx}
-                  className="bg-red-500 text-red-300 rounded-md p-1 hover:bg-red-700"
+                  className="bg-red-500 text-red-300 rounded-md p-1 hover:bg-red-700 cursor-pointer"
                   onMouseOver={(e) => handleMouseOver(item, e)}
                   onMouseOut={handleMouseOut}
                 >
@@ -73,6 +75,7 @@ export function TextRender({ text, word }) {
             zIndex: 1000,
             borderRadius: "10px",
             boxShadow: "5px 5px 5px grey",
+            color: "white",
           }}
         >
           {/* {descriptions[hoveredWord]} */}

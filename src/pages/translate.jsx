@@ -23,11 +23,11 @@ export const Translate = () => {
       <CustomSelect
         fileType={level}
         setFileType={setLevel}
-        width={"w-1/6"}
+        width={"w-60"}
         name={"Select Level"}
         selectMenu={selectMenu}
       />
-      <div className="flex gap-10 mt-5">
+      <div className="flex gap-10 mt-5 sm:flex-row flex-col">
         {/* 원본 텍스트 */}
         <TranslateBox title={"Original Text"}></TranslateBox>
         {/* 번역후 텍스트 */}
