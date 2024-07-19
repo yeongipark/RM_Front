@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { PaginationButton } from "./paginationButton";
 import {
   MdKeyboardDoubleArrowLeft,
@@ -15,7 +15,6 @@ export const Pagination = () => {
   const { sliceArr, pageNum, totalPage, changePageNum, prevPage, nextPage } =
     usePagination(mock.pages, mock.total);
 
-  console.log(sliceArr, pageNum, totalPage);
   return (
     <div className="flex justify-center items-center gap-2">
       <button
@@ -24,7 +23,7 @@ export const Pagination = () => {
       >
         <MdKeyboardDoubleArrowLeft />
       </button>
-      {sliceArr[totalPage]?.map((item, idx) => {
+      {sliceArr[totalPage]?.map((item) => {
         return (
           <PaginationButton
             num={item}

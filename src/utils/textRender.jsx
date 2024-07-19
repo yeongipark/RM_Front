@@ -19,7 +19,7 @@ export function TextRender({ text, word }) {
   const parts = text?.split(/(\s+)/);
 
   return (
-    <div className="leading-7 break-words h-5/6 overflow-auto">
+    <div className="leading-7 break-words overflow-auto h-0.9">
       {parts?.map((item, idx) => {
         if (item in word) {
           switch (word[item]) {

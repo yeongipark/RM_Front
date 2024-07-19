@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      height: {
+        0.9: "90%",
+      },
       spacing: {
         100: "30rem",
         110: "32rem",

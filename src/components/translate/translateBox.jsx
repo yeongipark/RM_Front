@@ -12,9 +12,11 @@ const word = {
 
 export const TranslateBox = ({ title }) => {
   return (
-    <div className="border-gray-200 border-solid border-2 md:w-3/4 h-110 shadow-lg rounded-md p-5 overflow-auto pb-0">
-      <h1 className="text-2xl font-bold mb-3">{title}</h1>
-      <TextRender text={text} word={word}></TextRender>
+    <div className="md:w-1/2 w-full">
+      <div className="border-gray-200 border-solid border-2  h-110 shadow-lg rounded-md p-5 overflow-auto pb-0 mb-1">
+        <h1 className="text-2xl font-bold mb-3">{title}</h1>
+        <TextRender text={text} word={word}></TextRender>
+      </div>
       <Pagination />
     </div>
   );
