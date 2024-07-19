@@ -3,6 +3,7 @@ import { CustomSelect } from "../../utils/customSelect";
 import "../../styles/textarea.css";
 import { CustomFileInput } from "../../utils/customFileInput";
 import { CSSTransition } from "react-transition-group";
+import useInput from "../hooks/useInput";
 
 const selectMenu = ["text", "audio", "image", "file"];
 
@@ -10,6 +11,9 @@ const selectMenu = ["text", "audio", "image", "file"];
 export const Left = () => {
   // 파일 타입 설정 변수 (기본 = text )
   const [fileType, setFileType] = useState("text");
+
+  // textarea에 입력 값을 저장할 변수
+  const textareaInput = useInput("");
 
   // 파일 저장 변수
   const [file, setFile] = useState(undefined);
@@ -55,6 +59,7 @@ export const Left = () => {
         <textarea
           ref={nodeRef}
           className=" w-11/12 border-solid border-gray-300 border-2 p-1 rounded-md resize-none h-80"
+          {...textareaInput}
         ></textarea>
       </CSSTransition>
       {/* 파일 타입이 text아닌 경우에 file을 입력받는 창 띄우기 */}
