@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CustomSelect } from "../utils/customSelect";
 import { TranslateBox } from "../components/translate/translateBox";
+import { TranslateSkeleton } from "../components/skeleton/translateSkeleton";
 
 // select 박스에 들어갈 내용들 선언
 const selectMenu = ["Level 1", "Level 2", "Level 3"];
@@ -16,6 +17,13 @@ const text =
 export const Translate = () => {
   //번역 단계 저장 변수
   const [level, setLevel] = useState(null);
+
+  // 로딩중인지 << 임시 state 나중에 react query로 변경
+  const [isLoading, setIsLoading] = useState(true);
+
+  if (isLoading) {
+    return <TranslateSkeleton />;
+  }
 
   return (
     <div className="pt-3 pl-24 pr-24 h-auto">

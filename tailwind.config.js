@@ -7,13 +7,22 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "-100% 0" },
+          "100%": { backgroundPosition: "100% 0" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 1s infinite",
+      },
       height: {
         0.9: "90%",
       },
       spacing: {
         100: "30rem",
         110: "32rem",
-        150: "35rem", // 사용자 정의 크기 추가
+        150: "35rem",
       },
     },
     screens: {
