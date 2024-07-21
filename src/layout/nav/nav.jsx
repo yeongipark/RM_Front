@@ -21,7 +21,10 @@ export const Nav = () => {
     <div>
       <div className="bg-black text-white p-6 flex sm:flex-row flex-col items-center ">
         {/* 로고 */}
-        <p className="font-black text-xl sm:mb-0 mb-5 cursor-pointer">
+        <p
+          className="font-black text-xl sm:mb-0 mb-5 cursor-pointer"
+          onClick={() => nav("/")}
+        >
           Readability Me!
         </p>
         {/*  로고와 메뉴 사이 공백을 위한 div */}
