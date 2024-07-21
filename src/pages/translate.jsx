@@ -19,7 +19,7 @@ export const Translate = () => {
   const [level, setLevel] = useState(null);
 
   // 로딩중인지 << 임시 state 나중에 react query로 변경
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   if (isLoading) {
     return <TranslateSkeleton />;

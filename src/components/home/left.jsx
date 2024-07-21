@@ -4,6 +4,7 @@ import "../../styles/textarea.css";
 import { CustomFileInput } from "../../utils/customFileInput";
 import { CSSTransition } from "react-transition-group";
 import useInput from "../hooks/useInput";
+import { useNavigate } from "react-router-dom";
 
 const selectMenu = ["text", "audio", "image", "file"];
 
@@ -17,6 +18,9 @@ export const Left = () => {
 
   // 파일 저장 변수
   const [file, setFile] = useState(undefined);
+
+  // 번역 버튼 눌렀을 때 번역화면으로 이동하도록 하기 위한 nav
+  const nav = useNavigate();
 
   // 변역 버튼 눌렀을 때
   const onSubmit = () => {
@@ -71,7 +75,10 @@ export const Left = () => {
       )}
 
       {/* 변역 버튼 */}
-      <div className="w-11/12 bg-black text-white p-1 text-center rounded-md cursor-pointer active:bg-gray-600 hover:bg-gray-800">
+      <div
+        className="w-11/12 bg-black text-white p-1 text-center rounded-md cursor-pointer active:bg-gray-600 hover:bg-gray-800"
+        onClick={() => nav("/translate")}
+      >
         Translate & Share
       </div>
     </div>
