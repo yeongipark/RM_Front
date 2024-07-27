@@ -14,7 +14,7 @@ export default {
         },
       },
       animation: {
-        shimmer: "shimmer 1s infinite",
+        shimmer: "shimmer 1.5s infinite",
       },
       height: {
         0.9: "90%",

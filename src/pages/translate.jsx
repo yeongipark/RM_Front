@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CustomSelect } from "../utils/customSelect";
 import { TranslateBox } from "../components/translate/translateBox";
 import { TranslateSkeleton } from "../components/skeleton/translateSkeleton";
+import { TranslateLeftSkeletion } from "../components/skeleton/translateLeftSkeletion";
 
 // select 박스에 들어갈 내용들 선언
 const selectMenu = ["Level 1", "Level 2", "Level 3"];
@@ -37,9 +38,11 @@ export const Translate = () => {
       />
       <div className="flex gap-10 mt-5 sm:flex-row flex-col">
         {/* 원본 텍스트 */}
-        <TranslateBox title={"Original Text"}></TranslateBox>
+        {/* <TranslateBox title={"Original Text"}></TranslateBox> */}
+        <TranslateLeftSkeletion title={"Original Text"} />
         {/* 번역후 텍스트 */}
-        <TranslateBox title={"Translated Text"}></TranslateBox>
+        {/* <TranslateBox title={"Translated Text"}></TranslateBox> */}
+        <TranslateLeftSkeletion title={"Translated Text"} />
       </div>
     </div>
   );
